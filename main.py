@@ -4,33 +4,53 @@ I will be using it to access country information data, weather information and c
 """
 import requests
 
-# Ask the user for the country name
-country = input("Enter the country name:").strip()
+while True:
 
-# Generate the URL
-URL = f"https://restcountries.com/v3.1/name/{country}"  
+    # Ask the user for the country name
+    country = input("Enter the country name:").strip()
 
-# Use Requests to get data from the URL back in JSON format
-# JSON = javascript object notation (you can also use XML but I prefer JSON)
-jsondata = requests.get(URL).json()
+    # Generate the URL
+    URL = f"https://restcountries.com/v3.1/name/{country}"  
 
-# Get the country returned
-data = jsondata[0]
+    # Use Requests to get data from the URL back in JSON format
+    # JSON = javascript object notation (you can also use XML but I prefer JSON)
+    jsondata = requests.get(URL).json()
 
-# Use brackets just like in lists and dictionaries to get the exact data the user needs
-country_name = data["name"]["common"]
-capital = data["capital"][0]
-population = data["population"]
-region = data["region"]
-currency = list(data["currencies"].keys())[0]
-language = list(data["languages"].values())[0]
+    # Get the country returned
+    data = jsondata[0]
 
-# Print the information
-print("Country Information: ")
-print()
-print(f"Country:    {country_name}")
-print(f"Capital:    {capital}")
-print(f"Population: {population:,}")
-print(f"Region:     {region}")
-print(f"Currency:   {currency}")
-print(f"Language:   {language}")
+    # Use brackets just like in lists and dictionaries to get the exact data the user needs
+    country_name = data["name"]["common"]
+    capital = data["capital"][0]
+    population = data["population"]
+    region = data["region"]
+    currency = list(data["currencies"].keys())[0]
+    language = list(data["languages"].values())[0]
+
+    # Print the information
+    print("Country Information: ")
+    print()
+    print(f"Country:    {country_name}")
+    print(f"Capital:    {capital}")
+    print(f"Population: {population:,}")
+    print(f"Region:     {region}")
+    print(f"Currency:   {currency}")
+    print(f"Language:   {language}")
+
+###############################################################################################################################
+
+    # Currency exchange API
+
+    # Ask user for currency information
+    from_currency = input("Enter from currency: ").upper().strip()
+    to_currency = input("Enter to currency: ").upper().strip()
+    amount = float(input("Enter amount: "))
+
+    # Enter your API key here (if needed )
+    API_KEY = "122a76de7e1339ad9a91fb11"
+
+    # Generate the URL you will be requesting (read the documentation on the API site)
+    URL = f"https://v6.exchangerate-api.com/v6/122a76de7e1339ad9a91fb11/latest/{from_currency}"
+
+ 
+    
