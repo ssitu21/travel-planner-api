@@ -66,4 +66,22 @@ while True:
     # Print the conversion
     print("Currency Exchange")
     print(f"{amount} {from_currency} = {converted:.2f} {to_currency}")
+
+###############################################################################################################################
+
+# Weather API
+
+# Ask user for the city name
+    city = input("Enter the city name").lower().strip()
+
+
+    # API key
+
+    API_KEY = "8841958517f8b11252ed847ec9994f78"
+
+    # Generate the URL you will be requesting (read the documentation on the API site)
+
+    URL = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}"
+
+    
     
