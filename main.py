@@ -83,5 +83,29 @@ while True:
 
     URL = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}"
 
+    # Use Requests to get data from the URL back in JSON format
+    # JSON = javascript object notation (you can also use XML but I prefer JSON)
+    json_data = requests.get(URL, timeout=10).json()
+
+    # Use brackets just like in lists and dictionaries to get the exact data you need
+    # Use a JSON viewer like https://codebeautify.org/jsonviewer to read your JSON
+    forecast = json_data['weather'][0]['description']
+    windspeed = json_data['wind']['speed']
+    temp = json_data['main']['temp']
+    temp_min = json_data['main']['temp_min']
+    temp_max = json_data['main']['temp_max']
+    humidity = json_data['main']['humidity']
+    feels_like = json_data['main']['feels_like']
+
+    # Round it  to keleus to celsius
+
+    round_c = round(temp - 273.15, 1)
+
+
+    # Prints the weather 
+    
+
+
+
     
     
