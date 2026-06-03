@@ -3,11 +3,16 @@ Requests  module providng APIS
 I will be using it to access country information data, weather information and currency exchange 
 """
 import requests
+import tkinter as tk
+from tkinter import simpledialog, messagebox
+
+root = tk.Tk()
+root.withdraw()  # hides main window so it doesn't look messy
 
 while True:
 
     # Ask the user for the country name
-    country = input("Enter the country name: ").strip()
+    country = simpledialog.askstring("Input", "Enter the country name:").strip()
     print()
 
     # Generate the URL
@@ -39,14 +44,18 @@ while True:
     print(f"Language:   {language}")
     print()
     
+    messagebox.showinfo("Country Info",
+        f"Country: {country_name}\nCapital: {capital}\nPopulation: {population}\nRegion: {region}\nCurrency: {currency}\nLanguage: {language}"
+    )
+
 ###############################################################################################################################
 
     # Currency exchange API
 
     # Ask user for currency information
-    from_currency = input("Enter from currency: ").upper().strip()
-    to_currency = input("Enter to currency: ").upper().strip()
-    amount = float(input("Enter amount: "))
+    from_currency = simpledialog.askstring("Input", "Enter from currency:").upper().strip()
+    to_currency = simpledialog.askstring("Input", "Enter to currency:").upper().strip()
+    amount = float(simpledialog.askstring("Input", "Enter amount:"))
     print()
 
     # Enter your API key here (if needed )
@@ -71,13 +80,16 @@ while True:
     print(f"{amount} {from_currency} = {converted:.2f} {to_currency}")
     print()
 
+    messagebox.showinfo("Currency Exchange",
+        f"{amount} {from_currency} = {converted:.2f} {to_currency}"
+    )
 
 ###############################################################################################################################
 
 # Weather API
 
 # Ask user for the city name
-    city = input("Enter the city name: ").lower().strip()
+    city = simpledialog.askstring("Input", "Enter the city name:").lower().strip()
     print()
 
 
@@ -120,16 +132,14 @@ while True:
     
     print()
 
+    messagebox.showinfo("Weather",
+        f"{forecast}\nTemp: {temp_c}°C\nFeels like: {feels_like_c}°C\nHumidity: {humidity}%"
+    )
+
     # Loop
     
-    loop = input("Do you want to run it again (Y/N):").lower().strip()
+    loop = simpledialog.askstring("Continue", "Do you want to run it again (Y/N):").lower().strip()
 
     if loop != "y":
-        print("Goodbye!")
+        messagebox.showinfo("Goodbye", "Goodbye!")
         break
-
-
-
-
-    
-    
