@@ -7,7 +7,8 @@ import requests
 while True:
 
     # Ask the user for the country name
-    country = input("Enter the country name:").strip()
+    country = input("Enter the country name: ").strip()
+    print()
 
     # Generate the URL
     URL = f"https://restcountries.com/v3.1/name/{country}"  
@@ -36,7 +37,8 @@ while True:
     print(f"Region:     {region}")
     print(f"Currency:   {currency}")
     print(f"Language:   {language}")
-
+    print()
+    
 ###############################################################################################################################
 
     # Currency exchange API
@@ -45,6 +47,7 @@ while True:
     from_currency = input("Enter from currency: ").upper().strip()
     to_currency = input("Enter to currency: ").upper().strip()
     amount = float(input("Enter amount: "))
+    print()
 
     # Enter your API key here (if needed )
     API_KEY = "122a76de7e1339ad9a91fb11"
@@ -66,13 +69,16 @@ while True:
     # Print the conversion
     print("Currency Exchange")
     print(f"{amount} {from_currency} = {converted:.2f} {to_currency}")
+    print()
+
 
 ###############################################################################################################################
 
 # Weather API
 
 # Ask user for the city name
-    city = input("Enter the city name").lower().strip()
+    city = input("Enter the city name: ").lower().strip()
+    print()
 
 
     # API key
@@ -106,17 +112,19 @@ while True:
     # Prints the weather 
     print("Today the forecast is: " + forecast)
     print(f"The Wind Speed is {windspeed}km/h")
+    print(f"It feels like: {feels_like_c}" + chr(176) + "C")
     print(f"The temperature is: {temp_c}" + chr(176) + "C")
     print(f"The minimum temperature is: {round(temp_min - 273.15, 1)}" + chr(176) + "C")
     print(f"The maximum temperature is: {round(temp_max - 273.15, 1)}" + chr(176) + "C")
     print(f"The humidity is: {humidity}%")
-    print(f"It feels like: {feels_like_c}" + chr(176) + "C")
+    
+    print()
 
     # Loop
     
     loop = input("Do you want to run it again (Y/N):").lower().strip()
 
-    if loop != "y"
+    if loop != "y":
         print("Goodbye!")
         break
 
