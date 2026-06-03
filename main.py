@@ -112,6 +112,14 @@ while True:
     print(f"The humidity is: {humidity}%")
     print(f"It feels like: {feels_like_c}" + chr(176) + "C")
 
+    # Loop
+    
+    loop = input("Do you want to run it again (Y/N):").lower().strip()
+
+    if loop != "y"
+        print("Goodbye!")
+        break
+
 
 
 
