@@ -99,11 +99,19 @@ while True:
 
     # Round it  to keleus to celsius
 
-    round_c = round(temp - 273.15, 1)
+    temp_c = round(temp - 273.15, 1)
+    feels_like_c = round(feels_like - 273.15, 1)
 
 
     # Prints the weather 
-    
+    print("Today the forecast is: " + forecast)
+    print(f"The Wind Speed is {windspeed}km/h")
+    print(f"The temperature is: {temp_c}" + chr(176) + "C")
+    print(f"The minimum temperature is: {round(temp_min - 273.15, 1)}" + chr(176) + "C")
+    print(f"The maximum temperature is: {round(temp_max - 273.15, 1)}" + chr(176) + "C")
+    print(f"The humidity is: {humidity}%")
+    print(f"It feels like: {feels_like_c}" + chr(176) + "C")
+
 
 
 
