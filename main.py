@@ -9,7 +9,10 @@ from tkinter import simpledialog, messagebox
 root = tk.Tk()
 root.withdraw()  # hides main window so it doesn't look messy
 
-while True:
+def country_information():
+
+    # Country Information API
+    
 
     # Ask the user for the country name
     country = simpledialog.askstring("Input", "Enter the country name:").strip()
@@ -50,6 +53,8 @@ while True:
 
 ###############################################################################################################################
 
+def currency_exchange():
+
     # Currency exchange API
 
     # Ask user for currency information
@@ -85,6 +90,8 @@ while True:
     )
 
 ###############################################################################################################################
+
+def weather_information():
 
 # Weather API
 
@@ -135,11 +142,29 @@ while True:
     messagebox.showinfo("Weather",
         f"{forecast}\nTemp: {temp_c}°C\nFeels like: {feels_like_c}°C\nHumidity: {humidity}%"
     )
+def main():
 
     # Loop
-    
-    loop = simpledialog.askstring("Continue", "Do you want to run it again (Y/N):").lower().strip()
 
-    if loop != "y":
-        messagebox.showinfo("Goodbye", "Goodbye!")
-        break
+    while True:
+
+        country_information()
+        currency_exchange()
+        weather_information()
+
+        # Loop
+
+        loop = simpledialog.askstring(
+            "Continue",
+            "Do you want to run it again (Y/N):"
+        ).lower().strip()
+
+        if loop != "y":
+            messagebox.showinfo("Goodbye", "Goodbye!")
+            break
+
+
+# Main program
+
+if __name__ == "__main__":
+    main()
